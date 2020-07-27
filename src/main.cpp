@@ -41,8 +41,8 @@ void setup() {
     //Serial.begin(9600);
 
     Joystick.begin(false);
-    Joystick.setZAxisRange(0, 1023);
-    Joystick.setRzAxisRange(0, 1023);
+    Joystick.setZAxisRange(ANALOG_MIN, ANALOG_MAX);
+    Joystick.setRzAxisRange(ANALOG_MIN, ANALOG_MAX);
 
     delay(1000);
 }
