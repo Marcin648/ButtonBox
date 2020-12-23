@@ -15,19 +15,21 @@ void Encoder::update(){
     bool rawA = !digitalRead(pinA);
     bool rawB = !digitalRead(pinB);
 
-    if(rawA != last_a){
-        if(rawB != rawA){
-            state++;
-        }else{
-            state--;
-        }
-        if(state > 1 || state < -1){
+    if(rawB != last_b){
+        state--;
+        if(state < -1){
             state = 0;
         }
     }
-    
-    last_a = rawA;
     last_b = rawB;
+
+    if(rawA != last_a){
+        state++;
+        if(state > 1){
+            state = 0;
+        }
+    }
+    last_a = rawA;
 }
 
 void Encoder::print(){
