@@ -12,5 +12,4 @@ public:
     Button(int pin);
 
     void update();
-    void print();
 };

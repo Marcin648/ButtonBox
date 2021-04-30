@@ -3,20 +3,20 @@
 
 #include "Arduino.h"
 
-MatrixButton::MatrixButton(int pinColumn, int pinRow){
-    this->pinColumn = pinColumn;
-    this->pinRow = pinRow;
+MatrixButton::MatrixButton(int pin_column, int pin_row){
+    this->pin_column = pin_column;
+    this->pin_row = pin_row;
 
-    pinMode(pinColumn, INPUT);
-    pinMode(pinRow, INPUT);
+    pinMode(pin_column, INPUT);
+    pinMode(pin_row, INPUT);
 }
 
 void MatrixButton::update(){
-    pinMode(pinColumn, OUTPUT);
-    pinMode(pinRow, INPUT_PULLUP);
-    digitalWrite(pinColumn, LOW);
+    pinMode(pin_column, OUTPUT);
+    pinMode(pin_row, INPUT_PULLUP);
+    digitalWrite(pin_column, LOW);
 
-    raw_state = !digitalRead(pinRow);
+    raw_state = !digitalRead(pin_row);
 
     if(state != raw_state){
         unsigned long toggle_dtime = millis() - toggle_time;
@@ -29,11 +29,6 @@ void MatrixButton::update(){
         toggle_time = millis();
     }
 
-    pinMode(pinColumn, INPUT);
-    pinMode(pinRow, INPUT);
-}
-
-void MatrixButton::print(){
-    Serial.print(state);
-    Serial.print(' ');
+    pinMode(pin_column, INPUT);
+    pinMode(pin_row, INPUT);
 }

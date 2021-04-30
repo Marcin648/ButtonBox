@@ -23,8 +23,3 @@ void Button::update(){
     }
 
 }
-
-void Button::print(){
-    Serial.print(state);
-    Serial.print(' ');
-}

@@ -11,5 +11,4 @@ public:
     Analog(int pin);
 
     void update();
-    void print();
 };

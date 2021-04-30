@@ -2,16 +2,15 @@
 
 class Encoder{
 private:
-    int pinA;
-    int pinB;
+    int pin_a;
+    int pin_b;
 
     bool last_a;
     bool last_b;
 public:
     int state;
 
-    Encoder(int pinA, int pinB);
+    Encoder(int pin_a, int pin_b);
 
     void update();
-    void print();
 };

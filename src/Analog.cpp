@@ -20,8 +20,3 @@ void Analog::update(){
         value = raw_value + ANALOG_WINDOW;
     }
 }
-
-void Analog::print(){
-    Serial.print(value);
-    Serial.print(' ');
-}

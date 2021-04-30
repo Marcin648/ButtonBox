@@ -87,19 +87,4 @@ void loop() {
     Joystick.setRzAxis(analogs[1].value);
 
     Joystick.sendState();
-
-    /*
-    for(auto &analog : analogs){
-        analog.print();
-    }
-
-    for(auto &button : matrix_buttons){
-        button.print();
-    }
-
-    encoder_button.print();
-    encoder.print();
-
-    Serial.println();
-    */
 }

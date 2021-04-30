@@ -3,20 +3,20 @@
 
 #include "Arduino.h"
 
-Encoder::Encoder(int pinA, int pinB){
-    this->pinA = pinA;
-    this->pinB = pinB;
+Encoder::Encoder(int pin_a, int pin_b){
+    this->pin_a = pin_a;
+    this->pin_b = pin_b;
 
-    pinMode(pinA, INPUT_PULLUP);
-    pinMode(pinB, INPUT_PULLUP);
+    pinMode(pin_a, INPUT_PULLUP);
+    pinMode(pin_b, INPUT_PULLUP);
 }
 
 void Encoder::update(){
-    bool rawA = !digitalRead(pinA);
-    bool rawB = !digitalRead(pinB);
+    bool raw_a = !digitalRead(pin_a);
+    bool raw_b = !digitalRead(pin_b);
 
-    if(rawA != last_a){
-        if(rawB != rawA){
+    if(raw_a != last_a){
+        if(raw_b != raw_a){
             state++;
         }else{
             state--;
@@ -26,11 +26,6 @@ void Encoder::update(){
         }
     }
     
-    last_a = rawA;
-    last_b = rawB;
-}
-
-void Encoder::print(){
-    Serial.print(state);
-    Serial.print(' ');
+    last_a = raw_a;
+    last_b = raw_b;
 }
